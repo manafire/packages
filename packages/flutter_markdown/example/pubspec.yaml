@@ -4,14 +4,20 @@ publish_to: none
 
 environment:
   sdk: ^3.2.0
-  flutter: ">=3.16.0"
+  flutter: '>=3.16.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_markdown:
     path: ../
-  markdown: ^7.0.0
+  # Overriding Markdown b/c images in GCP subfolders DO NOT WORK!
+  # https://github.com/manafire/toureka-app/issues/151
+  # markdown: ^7.1.1
+  markdown:
+    git:
+      url: https://github.com/dart-lang/markdown
+      ref: master
 
 dev_dependencies:
   flutter_test:
